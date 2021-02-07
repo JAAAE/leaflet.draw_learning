@@ -1,20 +1,16 @@
-var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            osm = L.tileLayer(osmUrl, { maxZoom: 18, attribution: osmAttrib }),
-            map = new L.Map('map', { center: new L.LatLng(48.48988, 1.39638), zoom: 13 }),
-            drawnItems = L.featureGroup().addTo(map);
-    L.control.layers({
-        'osm': osm.addTo(map),
-        "google": L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
-            attribution: 'google'
-        })
-    }, { 'drawlayer': drawnItems }, { position: 'topleft', collapsed: false }).addTo(map);
-        
+        var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib}),
+			map = new L.Map('map', {layers: [osm], center: new L.LatLng(48.48988, 1.39638), zoom: 14 });
+
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
         // Set the title to show on the polygon button
-        L.drawLocal.draw.toolbar.buttons.polygon = 'Draw a polygon!';
+        L.drawLocal.draw.toolbar.buttons.polygon = 'Draw a sexy polygon!';
 
         var drawControl = new L.Control.Draw({
-            position: 'topleft',
+            position: 'topright',
             draw: {
                 polyline: true,
                 polygon: true,
@@ -115,6 +111,3 @@ var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         L.DomUtil.get('changeColor').onclick = function () {
             drawControl.setDrawingOptions({ rectangle: { shapeOptions: { color: '#004a80' } } });
         };
-
-        
-        
