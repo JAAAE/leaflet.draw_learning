@@ -32,7 +32,7 @@
 
 
 
-    //delete feature and download what features you put on map
+    //delete  and download feature
     // on click, clear all layers
     document.getElementById('delete').onclick = function(e) {
         drawnItems.clearLayers();
