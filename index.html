@@ -70,7 +70,23 @@
     z-index:1;
      
      }
-  
+    #delete, #export {
+        position: absolute;
+        top:50px;
+        right:10px;
+        z-index:100;
+        background:white;
+        color:black;
+        padding:6px;
+        border-radius:4px;
+        font-family: 'Helvetica Neue';
+        cursor: pointer;
+        font-size:12px;
+        text-decoration:none;
+        }
+    #export {
+        top:90px;
+        }
         
 
 </style>
@@ -78,6 +94,8 @@
 <body>
 
 <div id="map"></div>
+<div id='delete'>Delete Features</div>
+<a href='#' id='export'>Export Features</a>
 <script src="../leaflet.draw_learning/app.js"></script>
     
 </body>
