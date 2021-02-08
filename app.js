@@ -41,10 +41,10 @@
     function addPopup(layer) {
         var content = document.createElement("textarea");
         content.addEventListener("keyup", function () {
-            layer.feature.properties.desc = content.value;
+            layer.feature.properties.name = content.value;
         });
         layer.on("popupopen", function () {
-            content.value = layer.feature.properties.desc;
+            content.value = layer.feature.properties.name;
           content.focus();
         });
         layer.bindPopup(content).openPopup();
