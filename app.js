@@ -32,7 +32,7 @@
         var props = feature.properties = feature.properties || {};
         //layer.feature = {properties: {}}; // No need to convert to GeoJSON.
         //var props = layer.feature.properties;
-        props.name = null;
+        props.desc = null;
         props.image = null;
         drawnItems.addLayer(layer);
         addPopup(layer);
@@ -41,14 +41,15 @@
     function addPopup(layer) {
         var content = document.createElement("textarea");
         content.addEventListener("keyup", function () {
-            layer.feature.properties.name = content.value;
+            layer.feature.properties.desc = content.value;
         });
         layer.on("popupopen", function () {
-            content.value = layer.feature.properties.name;
+            content.value = layer.feature.properties.desc;
           content.focus();
         });
         layer.bindPopup(content).openPopup();
     }
+    
 
     //delete  and download feature
     // on click, clear all layers
