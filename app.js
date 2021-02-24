@@ -44,8 +44,8 @@
     function addPopup(layer){
         let popupContent = 
         '<form>' + 
-        'Description:<br><input type="text" id="input_desc"><br>' +
-        'Name:<br><input type="text" id="input_cena"><br>' +
+        'Feature Name:<br><input type="text" id="input_desc"><br>' +
+        'Description:<br><input type="text" id="input_cena"><br>' +
         '</form>';
         
         layer.bindPopup(popupContent).openPopup();
