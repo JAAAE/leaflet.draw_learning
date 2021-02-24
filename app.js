@@ -10,7 +10,7 @@
             attribution: 'google'
         })
     }, { 'drawlayer': drawnItems }, { position: 'topleft', collapsed: false }).addTo(map);
-    
+
     map.addControl(new L.Control.Draw({
         edit: {
             featureGroup: drawnItems,
@@ -34,12 +34,13 @@
         var props = feature.properties = feature.properties || {};
         //layer.feature = {properties: {}}; // No need to convert to GeoJSON.
         //var props = layer.feature.properties;
-        props.Name = null;
+        props.desc = null;
         props.image = null;
         drawnItems.addLayer(layer);
         addPopup(layer);
     });
 
+    var openLayer;
     function addPopup(layer){
         let popupContent = 
         '<form>' + 
