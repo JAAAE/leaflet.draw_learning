@@ -57,8 +57,8 @@
               properties: {}
             };
           }
-          document.getElementById("input_desc").value = _layer.feature.properties.link || "";
-          document.getElementById("input_cena").value = _layer.feature.properties.cena || "";
+          document.getElementById("input_desc").value = _layer.feature.properties.Feature_Name || "";
+          document.getElementById("input_cena").value = _layer.feature.properties.Description || "";
           document.getElementById("input_desc").focus();
           openLayer = _layer;
         });
@@ -71,11 +71,11 @@
       
       L.DomEvent.on(document,"keyup",function(){
         if(openLayer){
-          link = document.getElementById("input_desc").value;
-          cena = document.getElementById("input_cena").value;
+          Feature_Name = document.getElementById("input_desc").value;
+          Description = document.getElementById("input_cena").value;
       
-          openLayer.feature.properties.link = link;
-          openLayer.feature.properties.cena = cena;   
+          openLayer.feature.properties.Feature_Name = Feature_Name;
+          openLayer.feature.properties.Description = Description;   
         }
       })
     
